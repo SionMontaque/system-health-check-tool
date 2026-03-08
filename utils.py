@@ -1,0 +1,33 @@
+from datetime import datetime
+import os
+
+def format_report(data):
+
+    report = []
+    report.append("=== System Health Report ===")
+    report.append(f"Timestamp: {data['timestamp']}")
+    report.append(f"Hostname: {data['hostname']}")
+    report.append(f"OS: {data['os']}")
+    report.append(f"CPU Usage: {data['cpu']}%")
+    report.append(f"Memory Usage: {data['memory']}%")
+    report.append(f"Disk Usage: {data['disk']}%")
+    report.append(f"System Uptime: {data['uptime']}")
+
+    report.append("\nTop Processes:")
+    for i, process in enumerate(data['processes'], start=1):
+        report.append(f"{i}. {process}")
+
+    return "\n".join(report)
+
+def save_report(report_text):
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+    filename = f"system_report_{timestamp}.txt"
+
+    report_path = os.path.join("reports", filename)
+
+    with open(report_path, "w") as file:
+        file.write(report_text)
+
+    return report_path

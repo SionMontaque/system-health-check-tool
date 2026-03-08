@@ -1,26 +1,27 @@
 from health_checks import (get_hostname, get_os_info, get_cpu_usage, get_memory_usage, get_disk_usage, get_system_uptime, get_top_processes)
+from utils import format_report, save_report
+from datetime import datetime
 
 def main():
-    print("System Health Report")
-    
-    hostname = get_hostname()
-    os_info = get_os_info()
-    cpu_usage = get_cpu_usage()
-    memory_usage = get_memory_usage()
-    disk_usage = get_disk_usage()
-    uptime = get_system_uptime()
-    processes = get_top_processes()
+    data = {
+        "timestamp": datetime.now(),
+        "hostname": get_hostname(),
+        "os": get_os_info(),
+        "cpu": get_cpu_usage(),
+        "memory": get_memory_usage(),
+        "disk": get_disk_usage(),
+        "uptime": get_system_uptime(),
+        "processes": get_top_processes()
+    }
 
-    print(f"Hostname: {hostname}")
-    print(f"OS: {os_info}")
-    print(f"CPU Usage: {cpu_usage}%")
-    print(f"Memory Usage: {memory_usage}%")
-    print(f"Disk Usage: {disk_usage}%")
-    print(f"System Uptime: {uptime}")
+    report = format_report(data)
 
-    print("\nTop Processes:")
-    for i, process in enumerate(processes, start=1):
-        print(f"{i}. {process}")
+    print(report)
+
+    report_path = save_report(report)
+
+    print(f"\nReport saved to: {report_path}")
+
 
 if __name__ == "__main__":
     main()    
