@@ -4,7 +4,7 @@ from datetime import datetime
 
 def main():
     data = {
-        "timestamp": datetime.now(),
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "hostname": get_hostname(),
         "os": get_os_info(),
         "cpu": get_cpu_usage(),

@@ -13,13 +13,16 @@ def format_report(data):
     report.append(f"Disk Usage: {data['disk']}%")
     report.append(f"System Uptime: {data['uptime']}")
 
-    report.append("\nTop Processes:")
+    report.append("")
+    report.append("Top Processes:")
     for i, process in enumerate(data['processes'], start=1):
         report.append(f"{i}. {process}")
 
     return "\n".join(report)
 
 def save_report(report_text):
+
+    os.makedirs("reports", exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
