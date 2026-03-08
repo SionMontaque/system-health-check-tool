@@ -54,24 +54,6 @@ python main.py
 
 ---
 
-## Project Structure
-
-system-health-check-tool
-│
-├── main.py
-├── health_checks.py
-├── utils.py
-├── requirements.txt
-├── README.md
-│
-├── reports/
-│ └── sample_report.txt
-│
-└── screenshots/
-└── terminal_output.png
-
----
-
 ## Why I Built This
 
 I built this project to strengthen my Python automation and system monitoring skills by creating a practical tool that gathers system health information and generates structured reports. The goal was to build a simple, maintainable script that demonstrates scripting, debugging and modular code organisation.
