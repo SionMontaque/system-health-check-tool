@@ -2,7 +2,7 @@
 
 A Python-based automation tool that collects key system health information and generates a readable report for troubleshooting and routine system checks.
 
-The tool gathers information such as CPU usage, memory usage, disk usage, system uptime and running processes, then outputs a structured report in both the terminal and a saved text file.
+The tool gathers information such as CPU usage, memory usage, disk usage, and system uptime, then outputs a structured report in both the terminal and a saved text file.
 
 ---
 
@@ -10,8 +10,7 @@ The tool gathers information such as CPU usage, memory usage, disk usage, system
 
 • Collects system information including hostname and operating system  
 • Reports CPU, memory and disk usage  
-• Calculates system uptime  
-• Displays top running processes  
+• Calculates system uptime
 • Generates timestamped system health reports  
 • Saves reports automatically to a `/reports` directory  
 
