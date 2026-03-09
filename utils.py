@@ -13,10 +13,6 @@ def format_report(data):
     report.append(f"Disk Usage: {data['disk']}%")
     report.append(f"System Uptime: {data['uptime']}")
 
-    report.append("")
-    report.append("Top Processes:")
-    for i, process in enumerate(data['processes'], start=1):
-        report.append(f"{i}. {process}")
 
     return "\n".join(report)
 

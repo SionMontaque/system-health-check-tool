@@ -58,21 +58,4 @@ def get_system_uptime():
         return f"Error retrieving uptime: {e}"
 
 
-def get_top_processes(limit=3):
-
-    processes = []
-
-    for proc in psutil.process_iter(['name', 'cpu_percent']):
-        try:
-            name = proc.info['name'] or "Unknown"
-            cpu = proc.info['cpu_percent']
-
-            processes.append((name, cpu))
-
-        except (psutil.NoSuchProcess, psutil.AccessDenied):
-            continue
-
-    processes.sort(key=lambda x: x[1], reverse=True)
-
-    return [proc[0] for proc in processes[:limit]]
 

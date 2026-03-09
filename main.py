@@ -1,4 +1,4 @@
-from health_checks import (get_hostname, get_os_info, get_cpu_usage, get_memory_usage, get_disk_usage, get_system_uptime, get_top_processes)
+from health_checks import (get_hostname, get_os_info, get_cpu_usage, get_memory_usage, get_disk_usage, get_system_uptime)
 from utils import format_report, save_report
 from datetime import datetime
 
@@ -11,7 +11,6 @@ def main():
         "memory": get_memory_usage(),
         "disk": get_disk_usage(),
         "uptime": get_system_uptime(),
-        "processes": get_top_processes()
     }
 
     report = format_report(data)
